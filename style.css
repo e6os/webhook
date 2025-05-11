@@ -45,29 +45,32 @@ input:focus, textarea:focus {
   box-shadow: 0 0 10px rgba(114, 137, 218, 0.8);
 }
 
+/* Flexbox for input group */
 .input-group {
   display: flex;
-  gap: 10px;
   justify-content: center;
+  gap: 10px;
 }
 
 .input-group input {
   flex: 1;
+  max-width: 150px; /* Optional, to limit input field width */
 }
 
+/* Center buttons vertically and horizontally */
 .button-group {
-  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: center; /* Center buttons horizontally */
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
+/* Style for the buttons */
 button {
   background-color: #7289da;
   color: white;
   padding: 12px;
-  margin-top: 15px;
   width: 100%;
   max-width: 300px; /* Optional, to limit button width */
   border: none;
@@ -83,6 +86,7 @@ button:hover {
   box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
 }
 
+/* Style for the delete button */
 .delete-btn {
   background-color: #ff4f4f;
   color: white;
