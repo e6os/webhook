@@ -1,1 +1,101 @@
-<script language=javascript>document.write(unescape('@import%20url%28%27https%3A//fonts.googleapis.com/css2%3Ffamily%3DOrbitron%3Awght@500%26display%3Dswap%27%29%3B%0A%0Abody%20%7B%0A%20%20margin%3A%200%3B%0A%20%20font-family%3A%20%27Orbitron%27%2C%20sans-serif%3B%0A%20%20background%3A%20%230e101c%3B%0A%20%20color%3A%20%23fff%3B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20center%3B%0A%20%20align-items%3A%20center%3B%0A%20%20height%3A%20100vh%3B%0A%7D%0A%0A.container%20%7B%0A%20%20background%3A%20%231c1e2a%3B%0A%20%20padding%3A%2030px%3B%0A%20%20border-radius%3A%2016px%3B%0A%20%20box-shadow%3A%200%200%2025px%20rgba%28114%2C%20137%2C%20218%2C%200.5%29%3B%0A%20%20width%3A%2090%25%3B%0A%20%20max-width%3A%20500px%3B%0A%20%20text-align%3A%20center%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20margin-bottom%3A%2020px%3B%0A%20%20color%3A%20%237289da%3B%0A%20%20text-shadow%3A%200%200%205px%20%237289da%3B%0A%7D%0A%0Ainput%2C%20textarea%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20padding%3A%2012px%3B%0A%20%20margin%3A%208px%200%3B%0A%20%20border%3A%20none%3B%0A%20%20border-radius%3A%208px%3B%0A%20%20background-color%3A%20%232f3136%3B%0A%20%20color%3A%20white%3B%0A%20%20box-shadow%3A%200%200%205px%20rgba%28114%2C%20137%2C%20218%2C%200.3%29%3B%0A%20%20transition%3A%200.2s%3B%0A%7D%0A%0Ainput%3Afocus%2C%20textarea%3Afocus%20%7B%0A%20%20outline%3A%20none%3B%0A%20%20box-shadow%3A%200%200%2010px%20rgba%28114%2C%20137%2C%20218%2C%200.8%29%3B%0A%7D%0A%0A/*%20Flexbox%20for%20input%20group%20*/%0A.input-group%20%7B%0A%20%20display%3A%20flex%3B%0A%20%20justify-content%3A%20center%3B%0A%20%20gap%3A%2010px%3B%0A%7D%0A%0A.input-group%20input%20%7B%0A%20%20flex%3A%201%3B%0A%20%20max-width%3A%20150px%3B%0A%7D%0A%0A.button-group%20%7B%0A%20%20display%3A%20flex%3B%0A%20%20flex-direction%3A%20column%3B%0A%20%20align-items%3A%20center%3B%0A%20%20gap%3A%2015px%3B%0A%20%20margin-top%3A%2020px%3B%0A%7D%0A%0Abutton%20%7B%0A%20%20background-color%3A%20%237289da%3B%0A%20%20color%3A%20white%3B%0A%20%20padding%3A%2012px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20max-width%3A%20300px%3B%0A%20%20border%3A%20none%3B%0A%20%20border-radius%3A%2010px%3B%0A%20%20font-size%3A%2016px%3B%0A%20%20cursor%3A%20pointer%3B%0A%20%20box-shadow%3A%200%200%2010px%20rgba%28114%2C%20137%2C%20218%2C%200.5%29%3B%0A%20%20transition%3A%200.3s%20ease%3B%0A%7D%0A%0Abutton%3Ahover%20%7B%0A%20%20background-color%3A%20%235b6eae%3B%0A%20%20box-shadow%3A%200%200%2020px%20rgba%28114%2C%20137%2C%20218%2C%200.8%29%3B%0A%7D%0A%0A.delete-btn%20%7B%0A%20%20background-color%3A%20%237289da%3B%0A%20%20color%3A%20white%3B%0A%20%20box-shadow%3A%200%200%2015px%20rgba%28255%2C%2079%2C%2079%2C%200.5%29%3B%0A%20%20transition%3A%200.3s%20ease%3B%0A%7D%0A%0A.delete-btn%3Ahover%20%7B%0A%20%20background-color%3A%20%23d43e3e%3B%0A%20%20box-shadow%3A%200%200%2025px%20rgba%28255%2C%2079%2C%2079%2C%200.8%29%3B%0A%7D%0A%0A.disclaimer%20%7B%0A%20%20font-size%3A%200.85em%3B%0A%20%20color%3A%20%23ccc%3B%0A%20%20margin-top%3A%2015px%3B%0A%7D'))</script>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #0e101c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #1c1e2a;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(114, 137, 218, 0.5);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #7289da;
+  text-shadow: 0 0 5px #7289da;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #2f3136;
+  color: white;
+  box-shadow: 0 0 5px rgba(114, 137, 218, 0.3);
+  transition: 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(114, 137, 218, 0.8);
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input-group input {
+  flex: 1;
+  max-width: 150px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #7289da;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  max-width: 300px; 
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(114, 137, 218, 0.5);
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #5b6eae;
+  box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
+}
+
+.delete-btn {
+  background-color: #ff4f4f;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 79, 79, 0.5);
+  transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #d43e3e;
+  box-shadow: 0 0 25px rgba(255, 79, 79, 0.8);
+}
+
+.disclaimer {
+  font-size: 0.85em;
+  color: #ccc;
+  margin-top: 15px;
+}
