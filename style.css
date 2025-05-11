@@ -1,4 +1,3 @@
-/* Modern Glowing Web UI */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 body {
@@ -54,10 +53,9 @@ input:focus, textarea:focus {
 
 .input-group input {
   flex: 1;
-  max-width: 150px; /* Optional, to limit input field width */
+  max-width: 150px;
 }
 
-/* Center buttons vertically and horizontally */
 .button-group {
   display: flex;
   flex-direction: column;
@@ -66,13 +64,12 @@ input:focus, textarea:focus {
   margin-top: 20px;
 }
 
-/* Style for the buttons */
 button {
   background-color: #7289da;
   color: white;
   padding: 12px;
   width: 100%;
-  max-width: 300px; /* Optional, to limit button width */
+  max-width: 300px;
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -88,7 +85,7 @@ button:hover {
 
 /* Style for the delete button */
 .delete-btn {
-  background-color: #ff4f4f;
+  background-color: #Ff0000;
   color: white;
   box-shadow: 0 0 15px rgba(255, 79, 79, 0.5);
   transition: 0.3s ease;
