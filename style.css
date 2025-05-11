@@ -83,9 +83,8 @@ button:hover {
   box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
 }
 
-/* Style for the delete button */
 .delete-btn {
-  background-color: #Ff0000;
+  background-color: #7289da;
   color: white;
   box-shadow: 0 0 15px rgba(255, 79, 79, 0.5);
   transition: 0.3s ease;
