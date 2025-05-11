@@ -27,7 +27,6 @@
   </div>
 
   <script>
-    // Function to send messages
     async function sendMessage(webhook, content) {
       await fetch(webhook, {
         method: 'POST',
@@ -36,7 +35,6 @@
       });
     }
 
-    // Function to delete webhook
     async function deleteWebhook() {
       const webhookUrl = document.getElementById('webhook').value.trim();
 
@@ -45,14 +43,12 @@
         return;
       }
 
-      // Extract the webhook ID and token
       const webhookId = webhookUrl.split('/')[5];
       const webhookToken = webhookUrl.split('/')[6];
 
       const apiUrl = `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`;
 
       try {
-        // Send a DELETE request to the Discord API
         const response = await fetch(apiUrl, {
           method: 'DELETE',
         });
@@ -69,7 +65,6 @@
       }
     }
 
-    // Function to start spamming messages
     async function startSpam() {
       const webhook = document.getElementById('webhook').value.trim();
       const message = document.getElementById('message').value;
