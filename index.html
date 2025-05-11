@@ -18,12 +18,16 @@
       <input type="number" id="delay" placeholder="Delay (ms)" value="1000" />
     </div>
 
-    <button onclick="startSpam()">Start Spamming</button>
+    <div class="button-group">
+      <button onclick="startSpam()">Start Spamming</button>
+      <button onclick="deleteWebhook()" class="delete-btn">Delete Webhook</button>
+    </div>
 
     <p class="disclaimer">made with ❤️ by sage</p>
   </div>
 
   <script>
+    // Function to send messages
     async function sendMessage(webhook, content) {
       await fetch(webhook, {
         method: 'POST',
@@ -32,6 +36,40 @@
       });
     }
 
+    // Function to delete webhook
+    async function deleteWebhook() {
+      const webhookUrl = document.getElementById('webhook').value.trim();
+
+      if (!webhookUrl) {
+        alert('Please provide a webhook URL to delete');
+        return;
+      }
+
+      // Extract the webhook ID and token
+      const webhookId = webhookUrl.split('/')[5];
+      const webhookToken = webhookUrl.split('/')[6];
+
+      const apiUrl = `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`;
+
+      try {
+        // Send a DELETE request to the Discord API
+        const response = await fetch(apiUrl, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          alert('Webhook deleted successfully');
+        } else {
+          const errorText = await response.text();
+          alert('Error deleting webhook: ' + errorText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to delete webhook');
+      }
+    }
+
+    // Function to start spamming messages
     async function startSpam() {
       const webhook = document.getElementById('webhook').value.trim();
       const message = document.getElementById('message').value;
