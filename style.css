@@ -1,5 +1,4 @@
 /* Modern Glowing Web UI */
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 body {
@@ -49,6 +48,19 @@ input:focus, textarea:focus {
 .input-group {
   display: flex;
   gap: 10px;
+  justify-content: center;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.button-group {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center; /* Center buttons horizontally */
 }
 
 button {
@@ -57,6 +69,7 @@ button {
   padding: 12px;
   margin-top: 15px;
   width: 100%;
+  max-width: 300px; /* Optional, to limit button width */
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -68,6 +81,18 @@ button {
 button:hover {
   background-color: #5b6eae;
   box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
+}
+
+.delete-btn {
+  background-color: #ff4f4f;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 79, 79, 0.5);
+  transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #d43e3e;
+  box-shadow: 0 0 25px rgba(255, 79, 79, 0.8);
 }
 
 .disclaimer {
