@@ -1,1 +1,92 @@
-<script language=javascript>document.write(unescape('%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Chead%3E%0A%20%20%3Cmeta%20charset%3D%22UTF-8%22%20/%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22/%3E%0A%20%20%3Ctitle%3EDiscord%20Webhook%20Spammer%3C/title%3E%0A%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22style.css%22%20/%3E%0A%3C/head%3E%0A%3Cbody%3E%0A%20%20%3Cdiv%20class%3D%22container%22%3E%0A%20%20%20%20%3Ch1%3EDiscord%20Webhook%20Spammer%3C/h1%3E%0A%0A%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22webhook%22%20placeholder%3D%22Webhook%20URL%22%20/%3E%0A%20%20%20%20%3Ctextarea%20id%3D%22message%22%20rows%3D%224%22%20placeholder%3D%22Enter%20message...%22%3E%3C/textarea%3E%0A%0A%20%20%20%20%3Cdiv%20class%3D%22input-group%22%3E%0A%20%20%20%20%20%20%3Cinput%20type%3D%22number%22%20id%3D%22count%22%20placeholder%3D%22Count%22%20value%3D%225%22%20/%3E%0A%20%20%20%20%20%20%3Cinput%20type%3D%22number%22%20id%3D%22delay%22%20placeholder%3D%22Delay%20%28ms%29%22%20value%3D%221000%22%20/%3E%0A%20%20%20%20%3C/div%3E%0A%0A%20%20%20%20%3Cdiv%20class%3D%22button-group%22%3E%0A%20%20%20%20%20%20%3Cbutton%20onclick%3D%22startSpam%28%29%22%3EStart%20Spamming%3C/button%3E%0A%20%20%20%20%20%20%3Cbutton%20onclick%3D%22deleteWebhook%28%29%22%20class%3D%22delete-btn%22%3EDelete%20Webhook%3C/button%3E%0A%20%20%20%20%3C/div%3E%0A%0A%20%20%20%20%3Cp%20class%3D%22disclaimer%22%3Emade%20with%20%u2764%uFE0F%20by%20sage%3C/p%3E%0A%20%20%3C/div%3E%0A%0A%20%20%3Cscript%3E%0A%20%20%20%20async%20function%20sendMessage%28webhook%2C%20content%29%20%7B%0A%20%20%20%20%20%20await%20fetch%28webhook%2C%20%7B%0A%20%20%20%20%20%20%20%20method%3A%20%27POST%27%2C%0A%20%20%20%20%20%20%20%20headers%3A%20%7B%20%27Content-Type%27%3A%20%27application/json%27%20%7D%2C%0A%20%20%20%20%20%20%20%20body%3A%20JSON.stringify%28%7B%20content%20%7D%29%0A%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20async%20function%20deleteWebhook%28%29%20%7B%0A%20%20%20%20%20%20const%20webhookUrl%20%3D%20document.getElementById%28%27webhook%27%29.value.trim%28%29%3B%0A%0A%20%20%20%20%20%20if%20%28%21webhookUrl%29%20%7B%0A%20%20%20%20%20%20%20%20alert%28%27Please%20provide%20a%20webhook%20URL%20to%20delete%27%29%3B%0A%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20const%20webhookId%20%3D%20webhookUrl.split%28%27/%27%29%5B5%5D%3B%0A%20%20%20%20%20%20const%20webhookToken%20%3D%20webhookUrl.split%28%27/%27%29%5B6%5D%3B%0A%0A%20%20%20%20%20%20const%20apiUrl%20%3D%20%60https%3A//discord.com/api/webhooks/%24%7BwebhookId%7D/%24%7BwebhookToken%7D%60%3B%0A%0A%20%20%20%20%20%20try%20%7B%0A%20%20%20%20%20%20%20%20const%20response%20%3D%20await%20fetch%28apiUrl%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20method%3A%20%27DELETE%27%2C%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20if%20%28response.ok%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20alert%28%27Webhook%20deleted%20successfully%27%29%3B%0A%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20const%20errorText%20%3D%20await%20response.text%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20alert%28%27Error%20deleting%20webhook%3A%20%27%20+%20errorText%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%20catch%20%28error%29%20%7B%0A%20%20%20%20%20%20%20%20console.error%28%27Error%3A%27%2C%20error%29%3B%0A%20%20%20%20%20%20%20%20alert%28%27Failed%20to%20delete%20webhook%27%29%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%0A%20%20%20%20async%20function%20startSpam%28%29%20%7B%0A%20%20%20%20%20%20const%20webhook%20%3D%20document.getElementById%28%27webhook%27%29.value.trim%28%29%3B%0A%20%20%20%20%20%20const%20message%20%3D%20document.getElementById%28%27message%27%29.value%3B%0A%20%20%20%20%20%20const%20count%20%3D%20parseInt%28document.getElementById%28%27count%27%29.value%29%3B%0A%20%20%20%20%20%20const%20delay%20%3D%20parseInt%28document.getElementById%28%27delay%27%29.value%29%3B%0A%0A%20%20%20%20%20%20if%20%28%21webhook%20%7C%7C%20%21message%20%7C%7C%20isNaN%28count%29%20%7C%7C%20isNaN%28delay%29%29%20%7B%0A%20%20%20%20%20%20%20%20alert%28%27Please%20fill%20all%20fields%20correctly.%27%29%3B%0A%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20for%20%28let%20i%20%3D%200%3B%20i%20%3C%20count%3B%20i++%29%20%7B%0A%20%20%20%20%20%20%20%20try%20%7B%0A%20%20%20%20%20%20%20%20%20%20await%20sendMessage%28webhook%2C%20message%29%3B%0A%20%20%20%20%20%20%20%20%20%20console.log%28%60Sent%20message%20%24%7Bi%20+%201%7D%60%29%3B%0A%20%20%20%20%20%20%20%20%7D%20catch%20%28err%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20console.error%28%60Error%20sending%20message%20%24%7Bi%20+%201%7D%60%2C%20err%29%3B%0A%20%20%20%20%20%20%20%20%20%20break%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20await%20new%20Promise%28res%20%3D%3E%20setTimeout%28res%2C%20delay%29%29%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%3C/script%3E%0A%3C/body%3E%0A%3C/html%3E'))</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discord Webhook Spammer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Discord Webhook Spammer</h1>
+
+    <input type="text" id="webhook" placeholder="Webhook URL" />
+    <textarea id="message" rows="4" placeholder="Enter message..."></textarea>
+
+    <div class="input-group">
+      <input type="number" id="count" placeholder="Count" value="5" />
+      <input type="number" id="delay" placeholder="Delay (ms)" value="1000" />
+    </div>
+
+    <div class="button-group">
+      <button onclick="startSpam()">Start Spamming</button>
+      <button onclick="deleteWebhook()" class="delete-btn">Delete Webhook</button>
+    </div>
+
+    <p class="disclaimer">made with ❤️ by sage</p>
+  </div>
+
+  <script>
+    async function sendMessage(webhook, content) {
+      await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content })
+      });
+    }
+
+    async function deleteWebhook() {
+      const webhookUrl = document.getElementById('webhook').value.trim();
+
+      if (!webhookUrl) {
+        alert('Please provide a webhook URL to delete');
+        return;
+      }
+
+      const webhookId = webhookUrl.split('/')[5];
+      const webhookToken = webhookUrl.split('/')[6];
+
+      const apiUrl = `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`;
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          alert('Webhook deleted successfully');
+        } else {
+          const errorText = await response.text();
+          alert('Error deleting webhook: ' + errorText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to delete webhook');
+      }
+    }
+
+    async function startSpam() {
+      const webhook = document.getElementById('webhook').value.trim();
+      const message = document.getElementById('message').value;
+      const count = parseInt(document.getElementById('count').value);
+      const delay = parseInt(document.getElementById('delay').value);
+
+      if (!webhook || !message || isNaN(count) || isNaN(delay)) {
+        alert('Please fill all fields correctly.');
+        return;
+      }
+
+      for (let i = 0; i < count; i++) {
+        try {
+          await sendMessage(webhook, message);
+          console.log(`Sent message ${i + 1}`);
+        } catch (err) {
+          console.error(`Error sending message ${i + 1}`, err);
+          break;
+        }
+        await new Promise(res => setTimeout(res, delay));
+      }
+    }
+  </script>
+</body>
+</html>
